@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Afazil App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #D4AF37;
+      --bg: #121212;
+      --card: #1E1E1E;
+      --text: #FFFFFF;
+      --subtext: #C4C4C4;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 1.2rem;
+      background-color: var(--primary);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #1A1A1A;
+      padding: 0.8rem 0;
+      z-index: 1000;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 2rem 1rem 4rem;
+    }
+
+    .card {
+      background-color: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+        margin: auto;
+      }
+
+      nav {
+        position: static;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>Afazil App</header>
+
+<nav>
+  <button onclick="showSection('chat')">Chat</button>
+  <button onclick="showSection('notes')">Notes</button>
+  <button onclick="showSection('reminders')">Reminders</button>
+  <button onclick="showSection('files')">Files</button>
+  <button onclick="showSection('discover')">Discover</button>
+</nav>
+
+<div class="container">
+  <div id="chat" class="section active">
+    <div class="card">
+      <h2>Chat</h2>
+      <p>Modern WhatsApp-style messaging for architects and clients. File sharing + voice notes built-in.</p>
+    </div>
+  </div>
+
+  <div id="notes" class="section">
+    <div class="card">
+      <h2>Notes</h2>
+      <p>Take rich text notes or draw sketches. Tag projects, add voice memos, and organize ideas visually.</p>
+    </div>
+  </div>
+
+  <div id="reminders" class="section">
+    <div class="card">
+      <h2>Reminders</h2>
+      <p>Set smart reminders for site visits, team calls, and delivery deadlines. Integrated with calendar view.</p>
+    </div>
+  </div>
+
+  <div id="files" class="section">
+    <div class="card">
+      <h2>File Vault</h2>
+      <p>Upload DWG, SketchUp, PDFs, and share directly with your team. Cloud-based and organized by project.</p>
+    </div>
+  </div>
+
+  <div id="discover" class="section">
+    <div class="card">
+      <h2>Discover</h2>
+      <p>Integrated Pinterest & Behance. Search moodboards and portfolios, save to your inspiration board.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(el => {
+      el.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
